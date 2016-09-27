@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by zsinkoedit (http://jsbin.com/kukarix/5/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet"> 
+  <title>Color clock</title>
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  color:white;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 50px;
+  margin-top: -25px;
+  
+    
+}
+</style>
+</head>
+<body>
+<div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+
+function colorClock(){
+
+ 
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds(); 
+  var x=Math.random()*100;
+  var y=Math.random()*100;
+  var z=Math.random()*100;
+  x=Math.round(x);
+  z=Math.round(z);
+  y=Math.round(y);
+  if (x<=9) {
+    x='0'+ x;
+  }
+  if (y<=9) {
+    y='0'+ y;
+  }
+  if (z<=9) {
+    z='0'+ z;
+  }
+console.log(x + ':' + y + ':' + z );  
+  
+if (hours <= 9) {
+  hours='0' + hours;
+}
+if (minutes <= 9) {
+    minutes='0' + minutes;
+}
+if (seconds <= 9) {
+  seconds = '0' + seconds;
+}
+
+  
+var hexColor = '#'  + x  + y + z;
+  document.body.style.background = hexColor;
+  
+var clockFace=hours + ':' + minutes + ':' + seconds;
+document.getElementById('clock').innerHTML = clockFace;
+
+setTimeout(function() {
+    colorClock();
+  }, 1000);
+
+}
+
+colorClock();
+
+</script>
+</body>
+</html>
